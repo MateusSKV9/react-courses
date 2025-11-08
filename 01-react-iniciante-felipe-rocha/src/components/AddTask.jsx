@@ -51,4 +51,8 @@ function AddTask({ onAddTaskSubmit }) {
 	);
 }
 
+AddTask.propTypes = {
+	onAddTaskSubmit: PropTypes.func,
+};
+
 export default AddTask;

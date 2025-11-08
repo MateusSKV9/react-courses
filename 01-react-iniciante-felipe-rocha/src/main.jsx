@@ -1,10 +1,23 @@
-import { StrictMode } from 'react'
-import { createRoot } from 'react-dom/client'
-import App from './App.jsx'
-import './index.css'
+import { StrictMode } from "react";
+import { createRoot } from "react-dom/client";
+import App from "./App.jsx";
+import "./index.css";
+import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import TaskPage from "./components/pages/TaskPage.jsx";
 
-createRoot(document.getElementById('root')).render(
-  <StrictMode>
-    <App />
-  </StrictMode>,
-)
+let router = createBrowserRouter([
+	{
+		path: "/",
+		Component: App,
+	},
+	{
+		path: "/task",
+		Component: TaskPage,
+	},
+]);
+
+createRoot(document.getElementById("root")).render(
+	<StrictMode>
+		<RouterProvider router={router} />
+	</StrictMode>
+);

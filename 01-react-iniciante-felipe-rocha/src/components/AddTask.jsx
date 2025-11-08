@@ -1,5 +1,6 @@
 import PropTypes from "prop-types";
 import { useState } from "react";
+import Input from "./input";
 
 function AddTask({ onAddTaskSubmit }) {
 	const [title, setTitle] = useState("");
@@ -13,18 +14,16 @@ function AddTask({ onAddTaskSubmit }) {
       gap-2
     "
 		>
-			<input
+			<Input
 				placeholder="Título da tarefa"
-				className="w-full rounded-md p-2 border border-slate-400"
 				type="text"
 				name=""
 				id=""
 				value={title}
 				onChange={(event) => setTitle(event.target.value)}
 			/>
-			<input
+			<Input
 				placeholder="Descrição da tarefa"
-				className="w-full rounded-md p-2 border border-slate-400"
 				type="text"
 				name=""
 				id=""
@@ -36,7 +35,6 @@ function AddTask({ onAddTaskSubmit }) {
 					if (!title.trim() || !description.trim()) {
 						return alert("Preencha o título e a descrição!");
 					}
-          
 
 					onAddTaskSubmit(title, description);
 					setTitle("");

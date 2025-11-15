@@ -1,9 +1,13 @@
+import H1 from "./H1";
+
 const fruitList = ["Apple", "Banana", "Cherry"];
 
 function MyList() {
 	return (
 		<section>
-			<h3>Lista de frutas</h3>
+			<H1 styles={{ color: "blue" }} title={"title frutas"}>
+				Lista de frutas
+			</H1>
 
 			<ul>
 				{fruitList.map((fruit, index, array) => {

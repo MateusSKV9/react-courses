@@ -1,12 +1,17 @@
+import Car from "./components/Car";
 import Counter from "./components/Counter";
 import Greeting from "./components/Greeting";
 import MyList from "./components/MyList";
 import UserList from "./components/UserList";
+import H1 from "./components/H1";
 
 const person = {
 	name: "Eliza",
 	age: 24,
 };
+
+const x = [1950, 1950, 1970];
+const y = { name: "Ford", model: "Mustang" };
 
 function App() {
 	return (
@@ -17,6 +22,9 @@ function App() {
 			<Greeting name={person.name} age={person.age} />
 			<Greeting person={person} />
 			<Counter />
+			<Car name="Uno" year={2000} color="Red" />
+			<Car years={x} carInfor={JSON.stringify(y)} />
+			<H1></H1>
 		</>
 	);
 }

@@ -3,7 +3,7 @@ const internalStyles = {
 	fontWeight: "400",
 };
 
-function H1({ styles, children, ...rest }) {
+function H1({ styles, children = "Vazio", ...rest }) {
 	return (
 		<h1 style={{ ...styles, ...internalStyles }} {...rest}>
 			{children}

@@ -45,6 +45,12 @@ function App() {
 			<button onClick={(event) => shoot3("Goal", event)} type="button">
 				Shoot 3
 			</button>
+
+			<Goal pIsGoal={false} />
+      -
+			<Goal pIsGoal={true} />
+
+			<Car brand={"Ford"} />
 		</>
 	);
 }

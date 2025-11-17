@@ -8,9 +8,12 @@ function Car(props) {
 	}
 
 	return (
-		<h2>
-			Nome: {props.name}, ano: {props.year}, cor: {props.color}
-		</h2>
+		<>
+			<h2>
+				Nome: {props.name}, ano: {props.year}, cor: {props.color}
+			</h2>
+			{props.brand && <h1>My car is a {props.brand}</h1>}
+		</>
 	);
 }
 

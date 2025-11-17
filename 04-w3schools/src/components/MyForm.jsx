@@ -7,12 +7,18 @@ function MyForm() {
 		setName(e.target.value);
 	}
 
+	function handleSubmit(e) {
+		e.preventDefault();
+		alert(name);
+	}
+
 	return (
-		<form>
+		<form onSubmit={handleSubmit}>
 			<label htmlFor="name">
 				<input onChange={handleChange} type="text" name="name" value={name} id="name" />
 			</label>
 			<p>Current value {name}</p>
+			<input type="submit" value="Enviar" />
 		</form>
 	);
 }

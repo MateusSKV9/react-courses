@@ -6,6 +6,7 @@ import UserList from "./components/UserList";
 import H1 from "./components/H1";
 import Goal from "./components/Goal";
 import MyCars from "./components/MyCars";
+import MyForm from "./components/MyForm";
 
 const person = {
 	name: "Eliza",
@@ -49,6 +50,7 @@ function App() {
 			<Goal pIsGoal={true} />
 			<Car brand={"Ford"} />
 			<MyCars />
+			<MyForm />
 		</>
 	);
 }

@@ -5,6 +5,7 @@ import MyList from "./components/MyList";
 import UserList from "./components/UserList";
 import H1 from "./components/H1";
 import Goal from "./components/Goal";
+import MyCars from "./components/MyCars";
 
 const person = {
 	name: "Eliza",
@@ -37,20 +38,17 @@ function App() {
 			<button onClick={shoot} type="button">
 				Take the Shot()
 			</button>
-
 			<button onClick={() => shoot2("Goal!")} type="button">
 				Shoot 2
 			</button>
-
 			<button onClick={(event) => shoot3("Goal", event)} type="button">
 				Shoot 3
 			</button>
-
 			<Goal pIsGoal={false} />
-      -
+			-
 			<Goal pIsGoal={true} />
-
 			<Car brand={"Ford"} />
+			<MyCars />
 		</>
 	);
 }

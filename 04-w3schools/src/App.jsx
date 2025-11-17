@@ -4,6 +4,7 @@ import Greeting from "./components/Greeting";
 import MyList from "./components/MyList";
 import UserList from "./components/UserList";
 import H1 from "./components/H1";
+import Goal from "./components/Goal";
 
 const person = {
 	name: "Eliza",
@@ -12,6 +13,14 @@ const person = {
 
 const x = [1950, 1950, 1970];
 const y = { name: "Ford", model: "Mustang" };
+
+function shoot() {
+	alert("Great Soot");
+}
+
+const shoot2 = (a) => alert(a);
+
+const shoot3 = (a, b) => alert("a: " + a + " b: " + b.type);
 
 function App() {
 	return (
@@ -25,6 +34,17 @@ function App() {
 			<Car name="Uno" year={2000} color="Red" />
 			<Car years={x} carInfor={JSON.stringify(y)} />
 			<H1></H1>
+			<button onClick={shoot} type="button">
+				Take the Shot()
+			</button>
+
+			<button onClick={() => shoot2("Goal!")} type="button">
+				Shoot 2
+			</button>
+
+			<button onClick={(event) => shoot3("Goal", event)} type="button">
+				Shoot 3
+			</button>
 		</>
 	);
 }

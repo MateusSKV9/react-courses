@@ -9,6 +9,9 @@ import MyCars from "./components/MyCars";
 import MyForm from "./components/MyForm";
 import MyForm2 from "./components/MyForm2";
 import MyForm3 from "./components/MyForm3";
+import Modal from "./components/Modal";
+import { useState, useRef, useEffect } from "react";
+import PortalButton from "./components/PortalButton";
 
 const person = {
 	name: "Eliza",
@@ -27,6 +30,17 @@ const shoot2 = (a) => alert(a);
 const shoot3 = (a, b) => alert("a: " + a + " b: " + b.type);
 
 function App() {
+	const [isOpen, setIsOpen] = useState(false);
+	const [count1, setCount1] = useState(0);
+	const [count2, setCount2] = useState(0);
+	const divRef = useRef(null);
+	const [target, setTarget] = useState(null);
+	const [buttonIsOpen, setButtonIsOpen] = useState(false);
+
+	useEffect(() => {
+		setTarget(divRef.current);
+	}, []);
+
 	return (
 		<>
 			<MyList />
@@ -55,6 +69,36 @@ function App() {
 			<MyForm />
 			<MyForm2 />
 			<MyForm3 />
+			<div>
+				<button onClick={() => setIsOpen(true)} type="button">
+					Open Modal
+				</button>
+			</div>
+			<Modal isOpen={isOpen} onClose={() => setIsOpen(false)}>
+				This is a React Portal (Modal)
+			</Modal>
+			<div
+				id="boxPortalButton"
+				ref={divRef}
+				style={{
+					width: "300px",
+					padding: "20px",
+					border: "2px solid black",
+					margin: "20px",
+				}}
+				onClick={() => setCount1((c) => c + 1)}
+			>
+				{count1}
+				<button onClick={() => setButtonIsOpen(!buttonIsOpen)} type="button">
+					Exibir
+				</button>
+
+				{target && (
+					<PortalButton buttonIsOpen={buttonIsOpen} target={target} onClick={() => setCount2((c) => c + 1)}>
+						Floating Button {count2}
+					</PortalButton>
+				)}
+			</div>
 		</>
 	);
 }

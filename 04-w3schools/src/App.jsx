@@ -1,6 +1,6 @@
 import Car from "./components/Car";
 import Counter from "./components/Counter";
-import Greeting from "./components/Greeting";
+// import Greeting from "./components/Greeting";
 import MyList from "./components/MyList";
 import UserList from "./components/UserList";
 import H1 from "./components/H1";
@@ -10,12 +10,20 @@ import MyForm from "./components/MyForm";
 import MyForm2 from "./components/MyForm2";
 import MyForm3 from "./components/MyForm3";
 import Modal from "./components/Modal";
-import { useState, useRef, useEffect } from "react";
+import { useState, useRef, useEffect, Suspense, lazy } from "react";
 import PortalButton from "./components/PortalButton";
 
 const person = {
 	name: "Eliza",
 	age: 24,
+};
+
+const styleLoading = {
+	height: "200px",
+	background: "black",
+	fontSize: "2rem",
+	color: "white",
+	padding: "20px",
 };
 
 const x = [1950, 1950, 1970];
@@ -28,6 +36,7 @@ function shoot() {
 const shoot2 = (a) => alert(a);
 
 const shoot3 = (a, b) => alert("a: " + a + " b: " + b.type);
+const Greeting = lazy(() => import("./components/Greeting"));
 
 function App() {
 	const [isOpen, setIsOpen] = useState(false);
@@ -45,10 +54,12 @@ function App() {
 		<>
 			<MyList />
 			<UserList />
-			<Greeting name="Mateus" age={21} />
-			<Greeting name={person.name} age={person.age} />
-			<Greeting person={person} />
 			<Counter />
+			<Suspense fallback={<div style={styleLoading}>Loading...</div>}>
+				<Greeting name="Mateus" age={21} />
+				<Greeting name={person.name} age={person.age} />
+				<Greeting person={person} />
+			</Suspense>
 			<Car name="Uno" year={2000} color="Red" />
 			<Car years={x} carInfor={JSON.stringify(y)} />
 			<H1></H1>
@@ -81,6 +92,7 @@ function App() {
 				id="boxPortalButton"
 				ref={divRef}
 				style={{
+					position: "relative",
 					width: "300px",
 					padding: "20px",
 					border: "2px solid black",

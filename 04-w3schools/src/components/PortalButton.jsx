@@ -8,7 +8,7 @@ function PortalButton({ buttonIsOpen, target, onClick, children }) {
 			onClick={onClick}
 			type="button"
 			style={{
-				position: "fixed",
+				position: "absolute",
 				bottom: "20px",
 				right: "20px",
 				padding: "10px",

@@ -19,6 +19,8 @@ import "./components/stylesExternal.css";
 // Importação com módulo
 import styleModule from "./components/Style.module.css";
 
+import styleButton from "./components/Button.module.css";
+
 const person = {
 	name: "Eliza",
 	age: 24,
@@ -119,6 +121,13 @@ function App() {
 					</PortalButton>
 				)}
 			</div>
+			<button className={`${styleButton.mybutton} ${styleButton.primary}`} type="button">
+				Button Primary
+			</button>
+			.
+			<button className={`${styleButton.secondary}`} type="button">
+				Button Secondary
+			</button>
 		</>
 	);
 }

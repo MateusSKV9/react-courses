@@ -13,6 +13,12 @@ import Modal from "./components/Modal";
 import { useState, useRef, useEffect, Suspense, lazy } from "react";
 import PortalButton from "./components/PortalButton";
 
+// IMPORTAÇÃO CSS
+import "./components/stylesExternal.css";
+
+// Importação com módulo
+import styleModule from "./components/Style.module.css";
+
 const person = {
 	name: "Eliza",
 	age: 24,
@@ -78,8 +84,10 @@ function App() {
 			<Car brand={"Ford"} />
 			<MyCars />
 			<MyForm />
+			.
 			<MyForm2 />
-			<MyForm3 />
+			.
+			<MyForm3 styles={styleModule.form} />
 			<div>
 				<button onClick={() => setIsOpen(true)} type="button">
 					Open Modal

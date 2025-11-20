@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-function MyForm3() {
+function MyForm3({ styles }) {
 	const [selectedFruit, setSelectedFruit] = useState("banana");
 
 	const handleChange = (event) => {
@@ -13,7 +13,7 @@ function MyForm3() {
 	};
 
 	return (
-		<form onSubmit={handleSubmit}>
+		<form className={styles} onSubmit={handleSubmit}>
 			<p>Select your favorite fruit:</p>
 
 			<label htmlFor="apple">

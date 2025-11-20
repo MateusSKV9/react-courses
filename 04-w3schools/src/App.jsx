@@ -8,6 +8,7 @@ import Goal from "./components/Goal";
 import MyCars from "./components/MyCars";
 import MyForm from "./components/MyForm";
 import MyForm2 from "./components/MyForm2";
+import MyForm3 from "./components/MyForm3";
 
 const person = {
 	name: "Eliza",
@@ -53,6 +54,7 @@ function App() {
 			<MyCars />
 			<MyForm />
 			<MyForm2 />
+			<MyForm3 />
 		</>
 	);
 }

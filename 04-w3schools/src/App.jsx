@@ -20,6 +20,7 @@ import "./components/stylesExternal.css";
 import styleModule from "./components/Style.module.css";
 
 import styleButton from "./components/Button.module.css";
+import ContainerButtonsStyled from "./components/ContainerButtonsStyled";
 
 const person = {
 	name: "Eliza",
@@ -128,6 +129,8 @@ function App() {
 			<button className={`${styleButton.secondary}`} type="button">
 				Button Secondary
 			</button>
+      .
+			<ContainerButtonsStyled />
 		</>
 	);
 }

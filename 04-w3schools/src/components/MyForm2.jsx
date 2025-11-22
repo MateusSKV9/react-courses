@@ -32,12 +32,12 @@ function MyForm2() {
 
 	return (
 		<form onSubmit={handleSubmit}>
-			<label htmlFor="firstName">
+			<label htmlFor="firstname">
 				First Name:
 				<input onChange={handleChange} value={inputs.firstname} type="text" name="firstname" id="firstname" />
 			</label>
 
-			<label htmlFor="lastName">
+			<label htmlFor="lastname">
 				Last Name:
 				<input onChange={handleChange} value={inputs.lastname} type="text" name="lastname" id="lastname" />
 			</label>

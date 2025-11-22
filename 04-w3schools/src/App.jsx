@@ -1,137 +1,81 @@
-import Car from "./components/Car";
-import Counter from "./components/Counter";
-// import Greeting from "./components/Greeting";
-import MyList from "./components/MyList";
-import UserList from "./components/UserList";
-import H1 from "./components/H1";
-import Goal from "./components/Goal";
-import MyCars from "./components/MyCars";
-import MyForm from "./components/MyForm";
-import MyForm2 from "./components/MyForm2";
-import MyForm3 from "./components/MyForm3";
-import Modal from "./components/Modal";
-import { useState, useRef, useEffect, Suspense, lazy } from "react";
-import PortalButton from "./components/PortalButton";
+import { BrowserRouter, Routes, Route, Link, NavLink } from "react-router-dom";
 
-// IMPORTAÇÃO CSS
-import "./components/stylesExternal.css";
+import { lazy, useState } from "react";
+import Home from "./components/pages/Home";
+import { BikeProducts, CarProducts } from "./components/pages/Products";
+import Info from "./components/pages/Info";
 
-// Importação com módulo
-import styleModule from "./components/Style.module.css";
-
-import styleButton from "./components/Button.module.css";
-import ContainerButtonsStyled from "./components/ContainerButtonsStyled";
-
-const person = {
-	name: "Eliza",
-	age: 24,
-};
-
-const styleLoading = {
-	height: "200px",
-	background: "black",
-	fontSize: "2rem",
-	color: "white",
-	padding: "20px",
-};
-
-const x = [1950, 1950, 1970];
-const y = { name: "Ford", model: "Mustang" };
-
-function shoot() {
-	alert("Great Soot");
-}
-
-const shoot2 = (a) => alert(a);
-
-const shoot3 = (a, b) => alert("a: " + a + " b: " + b.type);
-const Greeting = lazy(() => import("./components/Greeting"));
+const navLinkStyles = ({ isActive }) => ({
+	color: isActive ? "#007bff" : "#333",
+	textDecoration: isActive ? "none" : "underline",
+	fontWeight: isActive ? "bold" : "normal",
+	padding: "5px 10px",
+});
 
 function App() {
-	const [isOpen, setIsOpen] = useState(false);
-	const [count1, setCount1] = useState(0);
-	const [count2, setCount2] = useState(0);
-	const divRef = useRef(null);
-	const [target, setTarget] = useState(null);
-	const [buttonIsOpen, setButtonIsOpen] = useState(false);
-
-	useEffect(() => {
-		setTarget(divRef.current);
-	}, []);
+	const Products = lazy(() => import("./components/pages/Products"));
+	const About = lazy(() => import("./components/pages/About"));
+	const Contact = lazy(() => import("./components/pages/Contact"));
+	const [user, setUser] = useState();
 
 	return (
-		<>
-			<MyList />
-			<UserList />
-			<Counter />
-			<Suspense fallback={<div style={styleLoading}>Loading...</div>}>
-				<Greeting name="Mateus" age={21} />
-				<Greeting name={person.name} age={person.age} />
-				<Greeting person={person} />
-			</Suspense>
-			<Car name="Uno" year={2000} color="Red" />
-			<Car years={x} carInfor={JSON.stringify(y)} />
-			<H1></H1>
-			<button onClick={shoot} type="button">
-				Take the Shot()
-			</button>
-			<button onClick={() => shoot2("Goal!")} type="button">
-				Shoot 2
-			</button>
-			<button onClick={(event) => shoot3("Goal", event)} type="button">
-				Shoot 3
-			</button>
-			<Goal pIsGoal={false} />
-			-
-			<Goal pIsGoal={true} />
-			<Car brand={"Ford"} />
-			<MyCars />
-			<MyForm />
-			.
-			<MyForm2 />
-			.
-			<MyForm3 styles={styleModule.form} />
-			<div>
-				<button onClick={() => setIsOpen(true)} type="button">
-					Open Modal
-				</button>
-			</div>
-			<Modal isOpen={isOpen} onClose={() => setIsOpen(false)}>
-				This is a React Portal (Modal)
-			</Modal>
-			<div
-				id="boxPortalButton"
-				ref={divRef}
-				style={{
-					position: "relative",
-					width: "300px",
-					padding: "20px",
-					border: "2px solid black",
-					margin: "20px",
-				}}
-				onClick={() => setCount1((c) => c + 1)}
-			>
-				{count1}
-				<button onClick={() => setButtonIsOpen(!buttonIsOpen)} type="button">
-					Exibir
-				</button>
+		<BrowserRouter>
+			<nav style={{ display: "flex", gap: "20px" }}>
+				<ul>
+					<li>
+						<NavLink to="/" style={navLinkStyles}>
+							Home
+						</NavLink>
+					</li>
+					<li>
+						<NavLink to="/products" style={navLinkStyles}>
+							Products
+						</NavLink>
+					</li>
+					<li>
+						<NavLink to="/about" style={navLinkStyles}>
+							About
+						</NavLink>
+					</li>
+					<li>
+						<NavLink to="/contact" style={navLinkStyles}>
+							Contact
+						</NavLink>
+					</li>
+					<li>
+						<NavLink to="/customer"> Info</NavLink>
+						<ul>
+							<li>
+								<NavLink to="/customer/Emil">Emil</NavLink>
+							</li>
+							<li>
+								<NavLink to="/customer/Tobias">Tobias</NavLink>
+							</li>
+							<li>
+								<NavLink to={`/customer/${user}`}>User</NavLink>
+							</li>
+						</ul>
+					</li>
+				</ul>
+			</nav>
 
-				{target && (
-					<PortalButton buttonIsOpen={buttonIsOpen} target={target} onClick={() => setCount2((c) => c + 1)}>
-						Floating Button {count2}
-					</PortalButton>
-				)}
-			</div>
-			<button className={`${styleButton.mybutton} ${styleButton.primary}`} type="button">
-				Button Primary
-			</button>
-			.
-			<button className={`${styleButton.secondary}`} type="button">
-				Button Secondary
-			</button>
-      .
-			<ContainerButtonsStyled />
-		</>
+			<label htmlFor="user">
+				User
+				<input onChange={(e) => setUser(e.target.value)} value={user} type="text" name="user" id="user" />
+			</label>
+
+			<Routes>
+				<Route path="/" element={<Home />} />
+				<Route path="/products" element={<Products />}>
+					<Route path="car" element={<CarProducts />} />
+					<Route path="bike" element={<BikeProducts />} />
+				</Route>
+				<Route path="/about" element={<About />} />
+				<Route path="/contact" element={<Contact />} />
+				<Route path="/customer" element={<Info />} />
+				<Route path="/customer/:firstname" element={<Info />} />
+			</Routes>
+		</BrowserRouter>
 	);
 }
 

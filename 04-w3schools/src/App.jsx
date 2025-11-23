@@ -4,6 +4,8 @@ import { lazy, useState } from "react";
 import Home from "./components/pages/Home";
 import { BikeProducts, CarProducts } from "./components/pages/Products";
 import Info from "./components/pages/Info";
+import Search from "./components/pages/Search";
+import SearchWithButton from "./components/pages/SearchWithButton";
 
 const navLinkStyles = ({ isActive }) => ({
 	color: isActive ? "#007bff" : "#333",
@@ -56,6 +58,12 @@ function App() {
 							</li>
 						</ul>
 					</li>
+					<li>
+						<NavLink to="/search">Search useTransition</NavLink>
+					</li>
+					<li>
+						<NavLink to="/search-with-button">Search With Button</NavLink>
+					</li>
 				</ul>
 			</nav>
 
@@ -74,6 +82,8 @@ function App() {
 				<Route path="/contact" element={<Contact />} />
 				<Route path="/customer" element={<Info />} />
 				<Route path="/customer/:firstname" element={<Info />} />
+				<Route path="/search" element={<Search />} />
+				<Route path="/search-with-button" element={<SearchWithButton />} />
 			</Routes>
 		</BrowserRouter>
 	);

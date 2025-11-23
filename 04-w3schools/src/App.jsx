@@ -6,6 +6,7 @@ import { BikeProducts, CarProducts } from "./components/pages/Products";
 import Info from "./components/pages/Info";
 import Search from "./components/pages/Search";
 import SearchWithButton from "./components/pages/SearchWithButton";
+import Focus from "./components/Focus";
 
 const navLinkStyles = ({ isActive }) => ({
 	color: isActive ? "#007bff" : "#333",
@@ -71,6 +72,8 @@ function App() {
 				User
 				<input onChange={(e) => setUser(e.target.value)} value={user} type="text" name="user" id="user" />
 			</label>
+
+      <Focus />
 
 			<Routes>
 				<Route path="/" element={<Home />} />

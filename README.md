@@ -1,7 +1,7 @@
 
 
 <div align="center">
-  <img  width="400px" src="https://pluspng.com/img-png/react-logo-png-react-js-logo-history-design-history-and-evolution-5500x3094.png" alt="Logo Angular">
+  <img  width="390px" src="https://pluspng.com/img-png/react-logo-png-react-js-logo-history-design-history-and-evolution-5500x3094.png" alt="Logo React">
 </div>
 
 ## ℹ️ Sobre

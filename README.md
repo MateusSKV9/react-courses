@@ -1,10 +1,18 @@
-# Cursos de React
+
 
 <div align="center">
   <img  width="400px" src="https://pluspng.com/img-png/react-logo-png-react-js-logo-history-design-history-and-evolution-5500x3094.png" alt="Logo Angular">
 </div>
 
-<p>Este repositório contém os principais cursos de React realizados por mim a fim de construir uma base sólida na biblioteca.</p>
+## ℹ️ Sobre
+<p>Este repositório contém os principais cursos <strong>React</strong> que realizei.</p>
+
+## 🎯 Objetivos
+ - **Desenvolver** uma **base sólida** na biblioteca
+ - Explorar **novos conhecimentos**
+ - **Aplicar** e aprender **boas práticas** de **programação**
+
+---
 
 ## 📋 Lista de cursos
 

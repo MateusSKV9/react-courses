@@ -1,3 +1,5 @@
+import "./footer.module.css";
+
 function Footer() {
 	return (
 		<footer className="pad-20">
@@ -6,7 +8,6 @@ function Footer() {
 				<strong>
 					<a href="#">Mateus Santos</a>
 				</strong>
-				<button type="button">a</button>
 			</p>
 		</footer>
 	);

@@ -1,0 +1,28 @@
+header {
+	background-color: var(--highlight);
+	color: white;
+	height: 10vh;
+
+	padding: 10px 40px;
+
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+
+	ul {
+		list-style: none;
+
+		display: flex;
+		align-items: center;
+		gap: 25px;
+
+		a {
+			text-decoration: none;
+			color: inherit;
+			color: black;
+			background-color: white;
+			padding: 8px;
+			border-radius: 4px;
+		}
+	}
+}

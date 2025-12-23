@@ -1,3 +1,5 @@
+import "./header.css";
+
 function Header() {
 	return (
 		<header className="pad-20">
@@ -6,10 +8,13 @@ function Header() {
 			<nav>
 				<ul>
 					<li>
-						<a href="#">Google</a>
+						<a href="#">Home</a>
 					</li>
 					<li>
-						<a href="#">Facebook</a>
+						<a href="#">Sobre</a>
+					</li>
+					<li>
+						<a href="#">Projetos</a>
 					</li>
 				</ul>
 			</nav>

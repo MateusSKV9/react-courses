@@ -1,0 +1,30 @@
+.task-container {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+
+	background-color: #444;
+	margin: 8px 0px;
+	padding: 15px 20px;
+	border-radius: 5px;
+	cursor: pointer;
+	transition: background-color 0.1s ease;
+
+	&:hover {
+		background-color: #666;
+	}
+
+	.buttons-container {
+		display: flex;
+		gap: 8px;
+		font-size: 24px;
+
+		& > *:hover {
+			color: chartreuse;
+		}
+	}
+}
+
+.isCompleted {
+	border-left: 4px solid chartreuse;
+}

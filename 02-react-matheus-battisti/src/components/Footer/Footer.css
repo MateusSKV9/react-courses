@@ -1,0 +1,29 @@
+footer {
+	background-color: #333;
+	color: white;
+	min-height: 5vh;
+	padding: 16px 10px;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	gap: 5px;
+
+	a {
+		transition: all 0.15s ease-in-out;
+		cursor: pointer;
+		&:hover {
+			color: var(--highlight);
+		}
+	}
+
+	.container-social-links {
+		list-style: none;
+		display: flex;
+		gap: 10px;
+
+		& > * {
+			font-size: 1.5rem;
+		}
+	}
+}

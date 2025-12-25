@@ -1,0 +1,11 @@
+.linkButton {
+	background-color: #333;
+	font-size: 1.1rem;
+	padding: 8px;
+	color: white;
+	transition: all 0.15s ease-in-out;
+
+	&:hover {
+		color: var(--highlight);
+	}
+}

@@ -1,0 +1,38 @@
+header {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	padding: 20px 50px 25px 50px;
+	background-color: #333;
+	color: white;
+	min-height: 10vh;
+
+	#logo {
+		transition: all 0.15s ease-in-out;
+
+		&:hover {
+			color: var(--highlight);
+		}
+	}
+
+	nav {
+		ul {
+			list-style: none;
+			display: flex;
+			gap: 20px;
+
+			li {
+				transition: all 0.15s ease-in-out;
+				font-weight: bold;
+
+				&:hover {
+					color: var(--highlight);
+				}
+			}
+		}
+	}
+}
+
+a.active {
+	color: var(--highlight);
+}

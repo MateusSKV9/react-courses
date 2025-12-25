@@ -16,10 +16,10 @@
 
 ## 📋 Lista de cursos
 
-| Status | Nº  |      Curso       |                                            Repositório                                             |                       Deploy                       |
-| :----: | :-: | :--------------: | :------------------------------------------------------------------------------------------------: | :------------------------------------------------: |
-|   ✅   |  1  |   Felipe Rocha   |  [Acessar](https://github.com/MateusSKV9/react-courses/tree/main/01-react-iniciante-felipe-rocha)  | [Acessar](https://react-courses-three.vercel.app/) |
-|   🚧   |  2  | Matheus Battisti |     [Acessar](https://github.com/MateusSKV9/react-courses/tree/main/02-react-matheus-battisti)     |                         -                          |
-|   🚧   |  3  |   Felipe Rocha   | [Acessar](https://github.com/MateusSKV9/react-courses/tree/main/01-react-iniciante-2-felipe-rocha) |                         -                          |
-|   🚧   |  4  |    W3Schools     |           [Acessar](https://github.com/MateusSKV9/react-courses/tree/main/04-w3schools)            |                         -                          |
-|   🚧   |  5  |    W3Schools     |           [Acessar](https://github.com/MateusSKV9/react-courses/tree/main/05-julio-code)           |                         -                          |
+| Status | Nº  | Curso/Minicurso  |                                            Repositório                                             |                                               Deploy                                               |
+| :----: | :-: | :--------------: | :------------------------------------------------------------------------------------------------: | :------------------------------------------------------------------------------------------------: |
+|   ✅   |  1  | Felipe Rocha 01  |  [Acessar](https://github.com/MateusSKV9/react-courses/tree/main/01-react-iniciante-felipe-rocha)  |                         [Acessar](https://react-courses-three.vercel.app/)                         |
+|   🚧   |  2  | Matheus Battisti |     [Acessar](https://github.com/MateusSKV9/react-courses/tree/main/02-react-matheus-battisti)     |                                                 -                                                  |
+|   ✅   |  3  | Felipe Rocha 02  | [Acessar](https://github.com/MateusSKV9/react-courses/tree/main/01-react-iniciante-2-felipe-rocha) | [Acessar](https://github.com/MateusSKV9/react-courses/tree/main/01-react-iniciante-2-felipe-rocha) |
+|   🚧   |  4  |    W3Schools     |           [Acessar](https://github.com/MateusSKV9/react-courses/tree/main/04-w3schools)            |                                                 -                                                  |
+|   🚧   |  5  |    W3Schools     |           [Acessar](https://github.com/MateusSKV9/react-courses/tree/main/05-julio-code)           |                                                 -                                                  |

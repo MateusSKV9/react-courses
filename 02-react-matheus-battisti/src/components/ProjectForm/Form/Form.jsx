@@ -4,11 +4,9 @@ import Select from "../Select/Select";
 import SubmitButton from "../SubmitButton/SubmitButton";
 import "./Form.css";
 
-function Form({ btnText }) {
+function Form({ btnText, handleSubmit, projectData }) {
 	const [categories, setCategories] = useState([]);
-	const [category, setCategory] = useState();
-
-	const handleOnChange = (e) => setCategory(e.target.value);
+	const [project, setProject] = useState(projectData || {});
 
 	useEffect(() => {
 		async function fetchCategories() {
@@ -27,12 +25,33 @@ function Form({ btnText }) {
 		fetchCategories();
 	}, []);
 
+	const submit = (e) => {
+		e.preventDefault();
+		handleSubmit(project);
+	};
+
+	const handleChange = (e) => {
+		setProject((prev) => ({ ...prev, [e.target.name]: e.target.value }));
+	};
+
+	const handleCategory = (e) => {
+		setProject((prev) => ({
+			...prev,
+			category: {
+				id: e.target.value,
+				name: e.target.options[e.target.selectedIndex].text,
+			},
+		}));
+	};
+
 	return (
-		<form className="form-project">
+		<form onSubmit={submit} className="form-project">
 			<Input
 				type="text"
 				id="iname"
 				name="name"
+				value={project.name || ""}
+				handleOnChange={handleChange}
 				label="Nome do projeto"
 				placeholder="Insira o nome do projeto"
 				htmlFor="iname"
@@ -40,8 +59,10 @@ function Form({ btnText }) {
 
 			<Input
 				type="number"
-				name="budget"
 				id="ibudget"
+				name="budget"
+				value={project.budget || ""}
+				handleOnChange={handleChange}
 				placeholder="Insira o orçamento do projeto"
 				label="Orçamento do projeto"
 				htmlFor="ibudget"
@@ -49,12 +70,12 @@ function Form({ btnText }) {
 
 			<Select
 				options={categories}
-				value={category}
+				value={project.category ? project.category.id : ""}
 				name="category"
 				id="icategory"
 				label="Selecione a categoria"
 				htmlFor="icategory"
-				handleOnChange={handleOnChange}
+				handleOnChange={handleCategory}
 			/>
 
 			<SubmitButton value={btnText} />

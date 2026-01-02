@@ -24,7 +24,7 @@ function NewProject() {
 			console.error(error);
 		}
 
-		navigate("/projects");
+		navigate("/projects", { state: { message: "Projeto criado com sucesso!" } });
 	};
 
 	return (

@@ -32,18 +32,16 @@ function Projects() {
 				if (!response.ok) throw new Error("Algo deu errado ao buscar os projetos");
 
 				const data = await response.json();
-				console.log(data);
-
 				setProjects(data);
-				setLoading(false);
+				console.log(data);
 			} catch (error) {
 				console.error(error);
+			} finally {
+				setLoading(false);
 			}
 		};
 
-		setTimeout(() => {
-			fetchProjects();
-		}, 1000);
+		setTimeout(fetchProjects, 1000);
 	}, []);
 
 	const handleRemoveProject = async (id) => {
@@ -71,18 +69,22 @@ function Projects() {
 			{message && <Message type="success" message={message} />}
 
 			<div className={styles.container_projects}>
-				{projects.length > 0
-					? projects.map((project) => (
-							<ProjectCard
-								key={project.id}
-								id={project.id}
-								name={project.name}
-								budget={project.budget}
-								category={project.category?.name}
-								handleRemove={handleRemoveProject}
-							/>
-					  ))
-					: loading && <Loading />}
+				{loading ? (
+					<Loading />
+				) : projects.length > 0 ? (
+					projects.map((project) => (
+						<ProjectCard
+							key={project.id}
+							id={project.id}
+							name={project.name}
+							budget={project.budget}
+							category={project.category?.name}
+							handleRemove={handleRemoveProject}
+						/>
+					))
+				) : (
+					<p>Nenhum projeto encontrado</p>
+				)}
 			</div>
 		</section>
 	);

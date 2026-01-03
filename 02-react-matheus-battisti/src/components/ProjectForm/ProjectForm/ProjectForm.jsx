@@ -2,9 +2,9 @@ import { useEffect, useState } from "react";
 import Input from "../Input/Input";
 import Select from "../Select/Select";
 import SubmitButton from "../SubmitButton/SubmitButton";
-import "./Form.css";
+import "./ProjectForm.css";
 
-function Form({ btnText, handleSubmit, projectData }) {
+function ProjectForm({ btnText, handleSubmit, projectData }) {
 	const [categories, setCategories] = useState([]);
 	const [project, setProject] = useState(projectData || {});
 
@@ -83,4 +83,4 @@ function Form({ btnText, handleSubmit, projectData }) {
 	);
 }
 
-export default Form;
+export default ProjectForm;

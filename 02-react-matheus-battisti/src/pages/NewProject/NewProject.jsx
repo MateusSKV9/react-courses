@@ -1,7 +1,7 @@
 // import { useNavigate } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
-import Form from "../../components/ProjectForm/Form/Form";
 import "./NewProject.css";
+import ProjectForm from "../../components/ProjectForm/ProjectForm/ProjectForm";
 
 function NewProject() {
 	const navigate = useNavigate();
@@ -32,7 +32,7 @@ function NewProject() {
 			<h1>Criar Projeto</h1>
 			<p>Crie seu projeto para depois adicionar os serviços</p>
 
-			<Form handleSubmit={createPost} btnText="Criar projeto" />
+			<ProjectForm handleSubmit={createPost} btnText="Criar projeto" />
 		</section>
 	);
 }

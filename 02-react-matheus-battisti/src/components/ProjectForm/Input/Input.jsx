@@ -8,4 +8,5 @@ function Input({ type, htmlFor, label, name, id, placeholder, handleOnChange, va
 		</div>
 	);
 }
+
 export default Input;

@@ -4,13 +4,18 @@ import { Form, useParams } from "react-router-dom";
 import Loading from "../../components/Loading/Loading";
 import ProjectForm from "../../components/ProjectForm/ProjectForm/ProjectForm";
 import Message from "../../components/Message/Message";
+import ServiceForm from "../../services/ServiceForm";
+
+// import { v4 as uuidv4 } from "uuid";
 
 function Project() {
 	const [project, setProject] = useState(null);
 	const [loading, setLoading] = useState(true);
 	const [editProjectForm, setEditProjectForm] = useState(false);
+	const [editServiceForm, setEditServiceForm] = useState(false);
 	const [message, setMessage] = useState();
 	const [typeMessage, setTypeMessage] = useState();
+
 	const { id } = useParams();
 
 	useEffect(() => {
@@ -39,6 +44,25 @@ function Project() {
 	};
 
 	const toggleProjectForm = () => setEditProjectForm(!editProjectForm);
+
+	const toggleServiceForm = () => setEditServiceForm(!editServiceForm);
+
+	// const createService = (project) => {
+	// 	const lastService = project.services[project.services.length - 1];
+
+	// 	lastService.id = uuidv4();
+
+	// 	const lastServiceCost = lastService.cost;
+
+	// 	const newCost = parseFloat(project.cost) + parseFloat(lastServiceCost);
+
+	// 	if (newCost > parseFloat(project.budget)) {
+	// 		setMessage("Orçamento ultrapassdo, verifique o valor do serviço");
+	// 		typeMessage("error");
+	// 		project.services.pop();
+	// 		return false;
+	// 	}
+	// };
 
 	const editPost = async (project) => {
 		try {
@@ -103,6 +127,23 @@ function Project() {
 							<ProjectForm handleSubmit={editPost} btnText="Concluir edição" projectData={project} />
 						</div>
 					)}
+					<div className={styles.wrapper_container}>
+						<div className={styles.wrapper}>
+							<h3 className={styles.name}>Adicione um serviço:</h3>
+							<button className={styles.button} onClick={toggleServiceForm} type="button">
+								{editServiceForm ? "Adicionar serviço" : "Fechar"}
+							</button>
+						</div>
+						{
+							editServiceForm
+							// <ServiceForm handleSubmit={createService} btnText="Adicionar Serviço" projectData={project} />
+						}
+					</div>
+					<div className={styles.wrapper_container}>
+						<h3 className={styles.name}>Serviços</h3>
+						<p>Itens de serviço</p>
+					</div>
+					{/*  */}
 				</section>
 			) : (
 				<p style={styles}>Projeto não encontrado</p>

@@ -1,0 +1,46 @@
+.start {
+	width: 100%;
+	display: flex;
+	justify-content: flex-start;
+	align-items: flex-start;
+	padding: 50px 30px;
+}
+
+.name {
+	background-color: var(--black);
+	color: var(--highlight);
+	padding: 4px 16px;
+}
+
+.wrapper {
+	width: 100%;
+	display: flex;
+	justify-content: space-between;
+}
+
+.button {
+	background-color: var(--black);
+	color: white;
+	padding: 4px 8px;
+	font-weight: bold;
+	font-size: 1rem;
+	transition: all 0.15s ease;
+	cursor: pointer;
+
+	&:hover {
+		color: var(--highlight);
+	}
+}
+
+.details {
+	display: flex;
+	flex-direction: column;
+	gap: 8px;
+}
+
+.form {
+	width: 100%;
+	flex-direction: column;
+	display: flex;
+	gap: 20px;
+}

@@ -40,6 +40,36 @@ function Project() {
 
 	const toggleProjectForm = () => setEditProjectForm(!editProjectForm);
 
+	const editPost = async (project) => {
+		try {
+			setLoading(true);
+
+			if (project.budget < project.cost) {
+				setMessage("O orçamento não pode ser menor que o custo do projeto!");
+				setTypeMessage("error");
+				return false;
+			}
+
+			const response = await fetch(`http://localhost:5000/projects/${project.id}`, {
+				method: "PATCH",
+				headers: { "Content-Type": "Application/json" },
+				body: JSON.stringify(project),
+			});
+
+			if (!response.ok) throw new Error("Algo deu errado na alteração");
+
+			const data = await response.json();
+			fetchProject(project.id);
+			setMessage("Projeto atualizado!");
+			setTypeMessage("success");
+			setEditProjectForm(false);
+			console.log(data);
+		} catch (error) {
+			console.error(error);
+		} finally {
+			setLoading(false);
+		}
+	};
 
 	return (
 		<>
@@ -70,6 +100,7 @@ function Project() {
 					) : (
 						<div className={styles.form}>
 							<h3>Detalhes do projeto</h3>
+							<ProjectForm handleSubmit={editPost} btnText="Concluir edição" projectData={project} />
 						</div>
 					)}
 				</section>
